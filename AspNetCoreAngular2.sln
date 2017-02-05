@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B49954EF-05EE-4BE6-8718-EA7AEBE3E67E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DEC270CA-3F2B-45E6-BA7F-A6A234EF0D11}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AspNetCoreAngular2", "src\AspNetCoreAngular2\AspNetCoreAngular2.xproj", "{D9BE876F-F96E-4BAB-BC0C-5D20462DF940}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D9BE876F-F96E-4BAB-BC0C-5D20462DF940}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9BE876F-F96E-4BAB-BC0C-5D20462DF940}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9BE876F-F96E-4BAB-BC0C-5D20462DF940}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9BE876F-F96E-4BAB-BC0C-5D20462DF940}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D9BE876F-F96E-4BAB-BC0C-5D20462DF940} = {B49954EF-05EE-4BE6-8718-EA7AEBE3E67E}
+	EndGlobalSection
+EndGlobal
