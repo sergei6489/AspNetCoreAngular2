@@ -9,9 +9,8 @@ namespace AspNetCoreAngular2.EF
 {
     public class MainDBContext: IdentityDbContext<User>
     {
-        public MainDBContext(DbContextOptions<MainDBContext> options) : base(options)
-        {
-        }
+        public MainDBContext(DbContextOptions<MainDBContext> options) : base(options){ }
+
         public DbSet<Product> Products { get; set; }
         public DbSet<UserBuy> UserBuys { get; set; }
         public DbSet<ProductComment> ProductComments { get; set; }
