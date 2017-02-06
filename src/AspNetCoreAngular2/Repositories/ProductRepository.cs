@@ -40,12 +40,13 @@ namespace AspNetCoreAngular2.Repositories
             {
                 products = products.Where( n => n.Name.Contains( filter.Name ) );
             }
-            var data = products.ToList();
+            var data = products.Skip(pageIndex * pageCount).Take(pageCount).ToList();
             return new Pager<Product>()
             {
                 Count = data.Count,
                 List = data,
-                PageCount = pageCount
+                PageCount = pageCount,
+                TotalCount = products.Count()
             };
         }
     }
