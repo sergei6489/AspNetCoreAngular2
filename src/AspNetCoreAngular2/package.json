@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "name": "asp.net core angular2",
+  "name": "asp.net_core_angular2",
   "dependencies": {
     "@angular/common": "2.4.6",
     "@angular/compiler": "2.4.6",
@@ -17,6 +17,8 @@
     "systemjs": "^0.19.41",
     "typings": "^2.1.0",
     "zone.js": "^0.7.6",
+    "es6-promise": "4.0.5",
+    "es6-shim": "^0.35.3",
     "moment": "^2.17.0"
   },
   "devDependencies": {

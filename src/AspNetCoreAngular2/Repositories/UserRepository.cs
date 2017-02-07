@@ -6,7 +6,7 @@ using AspNetCoreAngular2.EF;
 
 namespace AspNetCoreAngular2.Repositories
 {
-    public class UserRepository
+    public class UserRepository: IUserRepository
     {
         private MainDBContext context;
 
