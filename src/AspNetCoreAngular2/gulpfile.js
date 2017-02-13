@@ -1,4 +1,5 @@
-﻿var gulp = require('gulp');
+﻿/// <binding AfterBuild='copy-all' />
+var gulp = require('gulp');
 var root_path = {
     webroot: "./wwwroot/",
     nmSrc:"./node_modules/"
@@ -18,7 +19,9 @@ gulp.task('copyNpmLibrary', function () {
 });
 
 gulp.task('copy-app', function () {
-    gulp.src('./appScripts/*.js').pipe(gulp.dest(root_path.webroot+'/appLibrary/'))
+    gulp.src('./appScripts/*.js').pipe(gulp.dest(root_path.webroot + '/appLibrary/'))
+    gulp.src('mainpage.html').pipe(gulp.dest(root_path.webroot))
+    gulp.src('system.config.js').pipe(gulp.dest(root_path.webroot))
 });
 
 gulp.task('copy-all', ['copyNpmLibrary', 'copy-app'])

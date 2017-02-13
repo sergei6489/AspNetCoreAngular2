@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNetCoreAngular2.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
@@ -11,21 +12,24 @@ namespace AspNetCoreAngular2.Controllers
     [Route("api/[controller]")]
     public class ProductController : Controller
     {
-        // GET: api/values
+        private IProductRepository productRepository;
+        public ProductController(IProductRepository productRepository)
+        {
+            this.productRepository = productRepository;
+        }
+
         [HttpGet]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET api/values/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST api/values
         [HttpPost]
         public void Post([FromBody]string value)
         {

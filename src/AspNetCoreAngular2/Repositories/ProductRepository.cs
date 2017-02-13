@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AspNetCoreAngular2.Data;
 using AspNetCoreAngular2.EF;
+using AspNetCoreAngular2.ViewModel;
 using AspNetCoreAngular2.ViewModels;
+using AutoMapper;
 
 namespace AspNetCoreAngular2.Repositories
 {
     public class ProductRepository: IProductRepository
     {
         private MainDBContext context;
+        private IMapper mapper;
 
-        public ProductRepository(MainDBContext context)
+        public ProductRepository(MainDBContext context, IMapper mapper)
         {
             this.context = context;
+            this.mapper = mapper;
         }
 
         public Product GetById(int id)
@@ -22,7 +25,7 @@ namespace AspNetCoreAngular2.Repositories
           return this.context.Products.FirstOrDefault( n => n.Id == id );
         }
 
-        public Pager<ProductViewModel> Filter( ProductFilter filter,int pageIndex, int pageCount)
+        public Pager<ProductViewModel> Filter( ProductFilter filter)
         {
             var products = this.context.Products.Select( n => new ProductViewModel() {
                 Id = n.Id,
@@ -49,23 +52,20 @@ namespace AspNetCoreAngular2.Repositories
             {
                 products = products.Where( n => n.Name.Contains( filter.Name ) );
             }
-            var data = products.Skip(pageIndex * pageCount).Take(pageCount).ToList();
+            var data = products.Skip((filter.PageIndex -1) * filter.PageItemsCount).Take( filter.PageItemsCount ).ToList();
             return new Pager<ProductViewModel>()
             {
                 Count = data.Count,
                 List = data,
-                PageCount = pageCount,
+                PageCount = products.Count() / filter.PageItemsCount,
                 TotalCount = products.Count()
             };
         }
 
         public void AddProduct(ProductViewModel product)
         {
-            var data = new ProductViewModel()
-            {
-                Category=product.
-            }
-            this.context.Products.Add( product );
+            var data = mapper.Map<Product>( product );
+            this.context.Products.Add( data );
         }
 
         public void UpdateProduct(ProductViewModel product)
@@ -82,9 +82,13 @@ namespace AspNetCoreAngular2.Repositories
             }
         }
 
-        public void DeleteProduct()
+        public void DeleteProduct(int id)
         {
-            throw new NotImplementedException();
+            var product = this.context.Products.FirstOrDefault( n => n.Id == id );
+            if (product!=null)
+            {
+                this.context.Remove( product );
+            }
         }
     }
 }

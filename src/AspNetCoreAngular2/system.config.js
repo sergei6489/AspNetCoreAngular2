@@ -2,7 +2,7 @@
 
     // map tells the System loader where to look for things
     var map = {
-        'app': 'client', // 'dist',
+        'app': 'appLibrary', // 'dist',
         'rxjs': 'node_modules/rxjs',
         'symbol-observable': 'node_modules/symbol-observable',
         '@angular': 'node_modules/@angular'
@@ -18,10 +18,9 @@
         '@angular/platform-browser': { main: '/bundles/platform-browser.umd.js', defaultExtension: 'js' },
         '@angular/platform-browser-dynamic': { main: '/bundles/platform-browser-dynamic.umd.js', defaultExtension: 'js' },
         '@angular/router': { main: '/bundles/router.umd.js', defaultExtension: 'js' },
-        'app': { main: 'main.js', defaultExtension: 'js' },
+        'app': { main: 'appMain.js', defaultExtension: 'js' },
         'rxjs': { defaultExtension: 'js' },
-        'symbol-observable': { main: 'index.js', defaultExtension: 'js' },
-        '@angular/material': { main: '/material.umd.js', defaultExtension: 'js' }
+        'symbol-observable': { main: 'index.js', defaultExtension: 'js' }
     };
 
     var config = {

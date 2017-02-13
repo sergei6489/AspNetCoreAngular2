@@ -19,6 +19,7 @@ namespace AspNetCoreAngular2
                 conf.CreateMap<User, UserViewModel>();
                 conf.CreateMap<Product, ProductViewModel>();
             } );
+            Mapper = configuration.CreateMapper();
         }
     }
 }

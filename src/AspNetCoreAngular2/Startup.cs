@@ -54,6 +54,9 @@ namespace AspNetCoreAngular2
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app)
         {
+            app.UseStaticFiles();
+            app.UseIdentity();
+            AutoMapper.RegisterMapper();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
